@@ -13,8 +13,9 @@ of states like: NY, MA, CA and so on
 Preserving the elements of the city name and state is very important as the training set may not contain tweets explicitly with 'NY','MA','CA'
 but while testing it should still use those important city and state names for prediction. It is absolutely essential to predict the location of the city correctly
 if the test tweet contains the state or city name. Failing just because the training tweets did not contain it, would be a dumb classifier.
-
 That is why I have done my best to not ignore the names of city and their states by dictionaries and lists called cityRelatedWords{} and cityRelatedWordsList[]
+
+For the given training (tweets.train.txt) and test (tweets.test1.txt) files my code runs in 21 seconds on burrow and predicts with an accuracy of 68%
 '''
 import math
 import re
