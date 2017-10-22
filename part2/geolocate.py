@@ -13,7 +13,7 @@ def readAndStore(file):
 		f=f.readlines()
 		for line in f:
 			city=line.split(" ")[0]
-			line=re.findall(r"[\w']+",line)
+			line=re.findall(r"[\w']+",line)#regex for storing group of characters from a-z, basically resulting in words
 			line = filter(lambda x: len(x) > 5 or x in city.lower().split(',_'), line)#found with experimentation that skipping words of length 5 or less helps accuracy
 			#the second condition is to not filter few exception like NY,CA and so on which are present in city name which are shorter than 5 but important
 			if city in bagOfWords.keys():
@@ -44,7 +44,7 @@ def predict(file):
 		for line in f:
 			wordsline.append(line)
 			answerCity.append(line.split(" ")[0])
-			words=re.findall(r"[\w']+",line)
+			words=re.findall(r"[\w']+",line)#regex for storing group of characters from a-z, basically resulting in words
 			words = filter(lambda x: x in cityRelatedWordsList or len(x) > 5, words)#found with experimentation that skipping words of length 5 or less helps accuracy
 			#the second condition is to not filter few cityRelatedWords like NY,CA and so on which are present in city name
 			words=words[1:]
