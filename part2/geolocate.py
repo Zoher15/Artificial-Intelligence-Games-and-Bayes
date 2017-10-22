@@ -14,7 +14,7 @@ def readAndStore(file):
 		for line in f:
 			city=line.split(" ")[0]
 			line=re.findall(r"[\w']+",line)#regex for storing group of characters from a-z, basically resulting in words
-			line = filter(lambda x: len(x) > 5 or x in city.lower().split(',_'), line)#found with experimentation that skipping words of length 5 or less helps accuracy
+			line = filter(lambda x: len(x) > 5 or x in city.split(',_'), line)#found with experimentation that skipping words of length 5 or less helps accuracy
 			#the second condition is to not filter few exception like NY,CA and so on which are present in city name which are shorter than 5 but important
 			if city in bagOfWords.keys():
 				cityCount[city]=cityCount[city]+1
