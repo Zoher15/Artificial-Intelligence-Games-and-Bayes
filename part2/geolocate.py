@@ -1,7 +1,21 @@
 #!/usr/bin/env python
 #Assignment 2 Question 2 "Testing loctation of Tweets" Elements of Artificial Intelligence by David Crandall
 #Author: Zoher Kachwala
+'''
+I tried many different things:
+1. By summing the individual probabilities of a word in a tweet than the product (to get around the problem of 0 probability) when a word doesnt occur
+2. By giving more weight to words in a tweet for ocurring in the top 5 words of a city
+3. Tried all sorts of small values for a word that has never occured given a city before finally settled on (1/100000)
+4. Keep the uppercase, punctuation (gave slow speeds due to large dictionary sizes)
+5. Scanning all words of every length
+6. Scanning only words of length 1-10 (settled on length 5 for the highest accuracy) but I also did not want to lose on scanning initials
+of states like: NY, MA, CA and so on
+Preserving the elements of the city name and state is very important as the training set may not contain tweets explicitly with 'NY','MA','CA'
+but while testing it should still use those important city and state names for prediction. It is absolutely essential to predict the location of the city correctly
+if the test tweet contains the state or city name. Failing just because the training tweets did not contain it, would be a dumb classifier.
 
+That is why I have done my best to not ignore the names of city and their states by dictionaries and lists called cityRelatedWords{} and cityRelatedWordsList[]
+'''
 import math
 import re
 import string
